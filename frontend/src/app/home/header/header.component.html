@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg bgHeader">
+  <a class="navbar-brand" href="/">Team Board</a>
+  <button
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown2"
+    aria-controls="navbarNavDropdown2"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown2">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          *ngIf="_userService.loggedIn()"
+          routerLink="listTask"
+          >List task</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="_userService.loggedIn()"
+          routerLink="saveTask"
+          >Create task</a
+        >
+      </li>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarNavDarkDropdown"
+        *ngIf="_userService.loggedIn() && _userService.isAdmin()"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Admin options
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li><a class="dropdown-item" routerLink="listUser">Users</a></li>
+              <li><a class="dropdown-item" routerLink="listRole">Roles</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          *ngIf="!_userService.loggedIn()"
+          mat-button
+          routerLink="signUp"
+          >Sign Up</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          *ngIf="!_userService.loggedIn()"
+          mat-button
+          routerLink="login"
+          >Login</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          *ngIf="_userService.loggedIn()"
+          mat-button
+          (click)="_userService.logout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

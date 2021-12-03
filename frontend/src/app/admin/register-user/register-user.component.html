@@ -1,0 +1,51 @@
+<div class="bgComponent">
+  <div class="form">
+    <mat-card class="card">
+      <div class="back" routerLink="/listUser"><mat-icon>clear</mat-icon></div>
+      <mat-card-title>Register user</mat-card-title>
+      <mat-card-content>
+        <div class="container">
+          <mat-form-field>
+            <input
+              [(ngModel)]="registerData.name"
+              matInput
+              placeholder="Name and lastname"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              [(ngModel)]="registerData.email"
+              type="email"
+              matInput
+              placeholder="Email"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              [(ngModel)]="registerData.password"
+              type="password"
+              matInput
+              placeholder="Password"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose user role</mat-label>
+            <mat-select [(ngModel)]="registerData.roleId">
+              <mat-option *ngFor="let role of roles" [value]="role._id">{{
+                role.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="registerAdmin()" class="button" mat-raised-button>
+          Register
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

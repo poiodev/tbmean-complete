@@ -1,0 +1,33 @@
+<div class="bgComponent">
+    <div class="form">
+      <mat-card class="card">
+        <mat-card-title>Register role</mat-card-title>
+        <mat-card-content>
+          <div class="container">
+            <mat-form-field>
+              <input
+                [(ngModel)]="registerData.name"
+                matInput
+                placeholder="Name"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                [(ngModel)]="registerData.description"
+                matInput
+                placeholder="Description"
+                required
+              />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="registerRole()" class="button" mat-raised-button>
+            Register
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  
